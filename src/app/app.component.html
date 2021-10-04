@@ -1,0 +1,174 @@
+<div>
+  <mat-toolbar class="continuacion-mat-toolbar"> </mat-toolbar>
+</div>
+
+<mat-divider></mat-divider>
+
+<div style="display: flex">
+  <div style="display: flex; flex-direction: column" class="left-bar">
+    <div style="margin-left: -6px">
+      <button mat-icon-button color="accent" (click)="this.clickTest()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+    <mat-divider></mat-divider>
+    <div>
+      <img
+        src="https://media-exp1.licdn.com/dms/image/D4E03AQH0Q2lHJ3iUhw/profile-displayphoto-shrink_200_200/0/1631141253356?e=1639008000&v=beta&t=J85qHI90p_b-meFZfdWEUCBh5ya5hOjhFwIoJTfEKXI"
+        height="29px"
+        style="border-radius: 50%; margin-top: 5px"
+        alt=""
+      />
+    </div>
+    <mat-divider></mat-divider>
+    <div style="padding-top: 15px; padding-bottom: 5px">
+      <mat-icon>dashboard</mat-icon>
+    </div>
+    <div style="padding-top: 5px; padding-bottom: 5px">
+      <mat-icon>home</mat-icon>
+    </div>
+    <div style="padding-top: 5px; padding-bottom: 8px">
+      <mat-icon>home</mat-icon>
+    </div>
+    <mat-divider></mat-divider>
+    <div style="padding-top: 10px; padding-bottom: 6px">
+      <mat-icon>home</mat-icon>
+    </div>
+    <div style="padding-top: 6px; padding-bottom: 6px">
+      <mat-icon>home</mat-icon>
+    </div>
+    <div style="padding-top: 6px; padding-bottom: 6px">
+      <mat-icon>home</mat-icon>
+    </div>
+    <div style="padding-top: 6px; padding-bottom: 6px">
+      <mat-icon>home</mat-icon>
+    </div>
+    <div style="padding-top: 6px; padding-bottom: 6px">
+      <mat-icon>home</mat-icon>
+    </div>
+    <div style="padding-top: 6px; padding-bottom: 6px">
+      <mat-icon>home</mat-icon>
+    </div>
+    <div style="padding-top: 6px; padding-bottom: 10px">
+      <mat-icon>home</mat-icon>
+    </div>
+    <mat-divider></mat-divider>
+    <div>
+      <mat-icon>home</mat-icon>
+    </div>
+    <mat-divider></mat-divider>
+    <div>
+      <mat-icon>home</mat-icon>
+    </div>
+  </div>
+
+  <mat-drawer-container autosize style="min-height: 100vh">
+    <mat-drawer mode="side" [(opened)]="expandido">
+      <div
+        style="display: flex; flex-direction: column; padding-left: 0px"
+        class="left-bar-2"
+      >
+        <div>
+          <img
+            src="https://smiledu.com/assets/images/logos/smiledu--logo-text.png"
+            alt=""
+            height="29px"
+            style="margin-top: 5px"
+          />
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <span>Jessica Macavilca</span> <br />
+          <span style="font-size: small">Front-End Jr</span>
+        </div>
+        <mat-divider></mat-divider>
+        <div style="padding-top: 16px">
+          <span>Dashboard</span>
+        </div>
+        <div>
+          <span>Noticias</span>
+        </div>
+        <div style="padding-bottom: 17px">
+          <span>Agenda</span>
+        </div>
+        <mat-divider></mat-divider>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Planificacion institucional</mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Talento humano</mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Tesoreria</mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Gestion academica</mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Matricula</mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>Estudiantes</p>
+          <p>Reportes</p>
+        </mat-expansion-panel>
+
+        <div style="padding-top: 6px; padding-bottom: 6px; height: 30px">
+          <span>Programacion curricular</span>
+        </div>
+        <div style="padding-top: 6px; padding-bottom: 16px">
+          <span>Configuracion</span>
+        </div>
+        <mat-divider></mat-divider>
+        <div style="padding-top: 14px; padding-bottom: 6px; height: 30px">
+          <span>Facturacion</span>
+        </div>
+        <mat-divider></mat-divider>
+        <div style="padding-top: 14px; padding-bottom: 6px; height: 30px">
+          <span>2020 Smiledu Premiun</span>
+        </div>
+
+        <mat-divider></mat-divider>
+      </div>
+    </mat-drawer>
+
+    <mat-drawer-content
+      ><div>
+        <mat-toolbar>
+          <span> Matrícula | Estudiantes </span>
+        </mat-toolbar>
+      </div>
+      <div>
+        <mat-toolbar> </mat-toolbar>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>
+
+<mat-card class="carta">
+  <mat-card-title> usuario </mat-card-title>
+  <mat-card-content>Detalle del Estudiantes</mat-card-content>
+  <mat-card-content>Nro. documento 24234234</mat-card-content>
+  <mat-card-content>Sede PREMIUM COLLEGE SURCO</mat-card-content>
+  <mat-card-content>Grado 1°Primaria</mat-card-content>
+  <mat-card-content>Estado de pago</mat-card-content>
+  <mat-card-title> Matricular </mat-card-title>
+  <mat-card-content>Matricular en aulas</mat-card-content>
+  <mat-card-content>LOS LEÑADORES</mat-card-content>
+  <mat-card-content>Año Lectivo</mat-card-content>
+  <mat-card-title> Hermanos(as) </mat-card-title>
+  <mat-card-content>iconos</mat-card-content>
+  <mat-card-title> Familiares </mat-card-title>
+  <mat-card-content>iconos</mat-card-content>
+</mat-card>

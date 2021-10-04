@@ -1,4 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-toolbar {
+  background-color: #fed600;
+  color: white;
+  font-weight: 100;
+}
+
+.continuacion-mat-toolbar {
+  position: absolute;
+  top: 1px;
+  left: 250px;
+  height: 128px;
+}
+
+.carta {
+  position: absolute;
+  bottom: 850px;
+  left: 550px;
+}
