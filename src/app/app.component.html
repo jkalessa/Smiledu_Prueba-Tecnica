@@ -1,174 +1,532 @@
-<div>
-  <mat-toolbar class="continuacion-mat-toolbar"> </mat-toolbar>
-</div>
-
-<mat-divider></mat-divider>
-
 <div style="display: flex">
-  <div style="display: flex; flex-direction: column" class="left-bar">
-    <div style="margin-left: -6px">
-      <button mat-icon-button color="accent" (click)="this.clickTest()">
+  <mat-divider></mat-divider>
+  <div
+    style="
+      transition: width 500ms ease 0s;
+      padding-left: 6px;
+      padding-top: 12px;
+      box-shadow: rgb(0 0 0 / 20%) 0px 3px 10px;
+      height: 100vh;
+    "
+    [ngStyle]="{ width: expanded ? '50px' : '320px' }"
+  >
+    <div style="position: relative; display: block; cursor: pointer">
+      <button mat-icon-button (click)="this.toggleSideNav()">
         <mat-icon>menu</mat-icon>
       </button>
+      <span
+        style="
+          position: absolute;
+          width: 200px;
+          top: 10px;
+          left: 48px;
+          opacity: 0;
+        "
+        [ngStyle]="{
+          opacity: expanded ? '0' : '1',
+          visibility: expanded ? 'hidden' : 'visible',
+          transition: expanded ? 'all 300ms ease 0s' : 'all 1000ms ease 0s'
+        }"
+      >
+        <img
+          src="https://smiledu.com/assets/images/logos/smiledu--logo-text.png"
+          height="20px"
+      /></span>
     </div>
-    <mat-divider></mat-divider>
-    <div>
-      <img
-        src="https://media-exp1.licdn.com/dms/image/D4E03AQH0Q2lHJ3iUhw/profile-displayphoto-shrink_200_200/0/1631141253356?e=1639008000&v=beta&t=J85qHI90p_b-meFZfdWEUCBh5ya5hOjhFwIoJTfEKXI"
-        height="29px"
-        style="border-radius: 50%; margin-top: 5px"
-        alt=""
-      />
+    <mat-divider style="margin-top: 8px; margin-bottom: 8px"></mat-divider>
+    <div style="position: relative; display: block; cursor: pointer">
+      <button mat-icon-button (click)="this.toggleSideNav()">
+        <img
+          src="https://media-exp1.licdn.com/dms/image/D4E03AQH0Q2lHJ3iUhw/profile-displayphoto-shrink_200_200/0/1631141253356?e=1639008000&v=beta&t=J85qHI90p_b-meFZfdWEUCBh5ya5hOjhFwIoJTfEKXI"
+          height="29px"
+          style="border-radius: 50%; margin-top: 5px"
+          alt=""
+        />
+      </button>
+      <span
+        style="
+          position: absolute;
+          width: 200px;
+          top: 4px;
+          left: 48px;
+          opacity: 0;
+        "
+        [ngStyle]="{
+          opacity: expanded ? '0' : '1',
+          visibility: expanded ? 'hidden' : 'visible',
+          transition: expanded ? 'all 300ms ease 0s' : 'all 1000ms ease 0s'
+        }"
+      >
+        Jessica Macavilca <br />
+        <span style="font-size: small">Front-End Developer</span>
+      </span>
     </div>
-    <mat-divider></mat-divider>
-    <div style="padding-top: 15px; padding-bottom: 5px">
-      <mat-icon>dashboard</mat-icon>
-    </div>
-    <div style="padding-top: 5px; padding-bottom: 5px">
-      <mat-icon>home</mat-icon>
-    </div>
-    <div style="padding-top: 5px; padding-bottom: 8px">
-      <mat-icon>home</mat-icon>
-    </div>
-    <mat-divider></mat-divider>
-    <div style="padding-top: 10px; padding-bottom: 6px">
-      <mat-icon>home</mat-icon>
-    </div>
-    <div style="padding-top: 6px; padding-bottom: 6px">
-      <mat-icon>home</mat-icon>
-    </div>
-    <div style="padding-top: 6px; padding-bottom: 6px">
-      <mat-icon>home</mat-icon>
-    </div>
-    <div style="padding-top: 6px; padding-bottom: 6px">
-      <mat-icon>home</mat-icon>
-    </div>
-    <div style="padding-top: 6px; padding-bottom: 6px">
-      <mat-icon>home</mat-icon>
-    </div>
-    <div style="padding-top: 6px; padding-bottom: 6px">
-      <mat-icon>home</mat-icon>
-    </div>
-    <div style="padding-top: 6px; padding-bottom: 10px">
-      <mat-icon>home</mat-icon>
-    </div>
-    <mat-divider></mat-divider>
-    <div>
-      <mat-icon>home</mat-icon>
-    </div>
-    <mat-divider></mat-divider>
-    <div>
-      <mat-icon>home</mat-icon>
+    <mat-divider style="margin-top: 14px; margin-bottom: 8px"></mat-divider>
+    <div
+      style="position: relative; display: block; cursor: pointer"
+      class="menu-item"
+      [ngClass]="{ 'menu-item': !expanded }"
+      *ngFor="let item of menuItems"
+    >
+      <div *ngIf="item.icon && item.label; else divider">
+        <button mat-icon-button>
+          <mat-icon>{{ item.icon }}</mat-icon>
+        </button>
+        <span
+          style="
+            position: absolute;
+            width: 200px;
+            top: 10px;
+            left: 48px;
+            opacity: 0;
+          "
+          [ngStyle]="{
+            opacity: expanded ? '0' : '1',
+            visibility: expanded ? 'hidden' : 'visible',
+            transition: expanded ? 'all 200ms ease 0s' : 'all 1200ms ease 0s'
+          }"
+          >{{ item.label }}</span
+        >
+      </div>
+      <ng-template #divider>
+        <mat-divider style="margin-top: 8px; margin-bottom: 8px"></mat-divider>
+      </ng-template>
     </div>
   </div>
-
-  <mat-drawer-container autosize style="min-height: 100vh">
-    <mat-drawer mode="side" [(opened)]="expandido">
+  <div style="width: 100%">
+    <mat-toolbar>
+      <span style="font-weight: 400">Matrícula | Estudiantes</span>
+      <span style="flex-grow: 1; flex-shrink: 1; flex-basis: auto"></span>
+      <button mat-icon-button>
+        <mat-icon>notifications</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>message</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </mat-toolbar>
+    <div style="height: 100px; background-color: #fed600"></div>
+    <div style="display: flex; height: 100%">
       <div
-        style="display: flex; flex-direction: column; padding-left: 0px"
-        class="left-bar-2"
+        style="
+          width: 400px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-top: 20px;
+        "
       >
-        <div>
-          <img
-            src="https://smiledu.com/assets/images/logos/smiledu--logo-text.png"
-            alt=""
-            height="29px"
-            style="margin-top: 5px"
-          />
-        </div>
-        <mat-divider></mat-divider>
-        <div>
-          <span>Jessica Macavilca</span> <br />
-          <span style="font-size: small">Front-End Jr</span>
-        </div>
-        <mat-divider></mat-divider>
-        <div style="padding-top: 16px">
-          <span>Dashboard</span>
-        </div>
-        <div>
-          <span>Noticias</span>
-        </div>
-        <div style="padding-bottom: 17px">
-          <span>Agenda</span>
-        </div>
-        <mat-divider></mat-divider>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>Planificacion institucional</mat-panel-title>
-          </mat-expansion-panel-header>
-        </mat-expansion-panel>
+        <form class="example-form">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Estudiante</mat-label>
+            <input
+              type="text"
+              placeholder="Buscar estudiante"
+              matInput
+              [formControl]="myControl"
+              [matAutocomplete]="auto"
+            />
+            <button matSuffix mat-button><mat-icon>search</mat-icon></button>
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option
+                *ngFor="let option of filteredOptions | async"
+                [value]="option"
+              >
+                {{ option }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
 
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>Talento humano</mat-panel-title>
-          </mat-expansion-panel-header>
-        </mat-expansion-panel>
+        <p style="width: 260px; text-align: left">
+          Filtro: PREMIUM COLLEGUE-SURCO
+        </p>
+        <p>Busca a tus estudiantes</p>
+        <p>
+          Año Lectivo 2020
+          <button mat-icon-button style="margin-left: 14px; margin-right: 14px">
+            <mat-icon>keyboard_arrow_down</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>filter_list</mat-icon>
+          </button>
+        </p>
 
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>Tesoreria</mat-panel-title>
-          </mat-expansion-panel-header>
-        </mat-expansion-panel>
-
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>Gestion academica</mat-panel-title>
-          </mat-expansion-panel-header>
-        </mat-expansion-panel>
-
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>Matricula</mat-panel-title>
-          </mat-expansion-panel-header>
-          <p>Estudiantes</p>
-          <p>Reportes</p>
-        </mat-expansion-panel>
-
-        <div style="padding-top: 6px; padding-bottom: 6px; height: 30px">
-          <span>Programacion curricular</span>
-        </div>
-        <div style="padding-top: 6px; padding-bottom: 16px">
-          <span>Configuracion</span>
-        </div>
-        <mat-divider></mat-divider>
-        <div style="padding-top: 14px; padding-bottom: 6px; height: 30px">
-          <span>Facturacion</span>
-        </div>
-        <mat-divider></mat-divider>
-        <div style="padding-top: 14px; padding-bottom: 6px; height: 30px">
-          <span>2020 Smiledu Premiun</span>
-        </div>
-
-        <mat-divider></mat-divider>
+        <mat-accordion style="width: 260px">
+          <mat-expansion-panel *ngFor="let expandibleItem of expandibleItems">
+            <mat-expansion-panel-header>
+              <mat-panel-title> {{ expandibleItem.title }} </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+              "
+              *ngFor="let child of expandibleItem.children"
+            >
+              <span>{{ child.nombre }}</span>
+              <span
+                style="
+                  font-size: 16px;
+                  color: limegreen;
+                  text-decoration: underline;
+                  font-weight: 500;
+                "
+                >{{ child.nota }}</span
+              >
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
       </div>
-    </mat-drawer>
+      <div style="width: 100%; display: flex">
+        <mat-card
+          style="
+            width: 90%;
+            height: 80vh;
+            margin-top: -60px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+              0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            display: flex;
+          "
+        >
+          <div style="width: 360px">
+            <div style="position: relative">
+              <img
+                src="https://cdn4.iconfinder.com/data/icons/avatar-vol-1-3/512/7-512.png"
+                height="40px"
+                style="
+                  background-color: aquamarine;
+                  border-radius: 50%;
+                  padding: 4px;
+                "
+              />
+              <div style="position: absolute; top: 4px; left: 60px">
+                <span style="font-size: small">Abraham</span> <br />
+                <span>Salazar Muñoz</span>
+              </div>
+            </div>
+            <div style="padding-left: 8px; padding-right: 24px">
+              <p style="font-size: large; margin-top: 24px">
+                Detalles del estudiante
+              </p>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: 8px;
+                "
+              >
+                <span>Nro. documento</span><span>72069123</span>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: 8px;
+                "
+              >
+                <span>Sede</span><span>PREMIUM COLLEGUE-SURCO</span>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: 8px;
+                "
+              >
+                <span>Grado</span><span>1° Primaria</span>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: 8px;
+                "
+              >
+                <span>Estado de pago</span
+                ><span
+                  style="
+                    color: green;
+                    border: 2px solid green;
+                    border-radius: 12px;
+                    padding-top: 2px;
+                    padding-right: 10px;
+                    padding-bottom: 2px;
+                    padding-left: 10px;
+                    font-weight: 500;
+                    margin-top: -4px;
+                  "
+                  >Al día</span
+                >
+              </div>
+            </div>
+            <div style="padding-left: 8px; padding-right: 24px">
+              <p style="font-size: large; margin-top: 24px">Matricular</p>
 
-    <mat-drawer-content
-      ><div>
-        <mat-toolbar>
-          <span> Matrícula | Estudiantes </span>
-        </mat-toolbar>
+              <div style="position: relative">
+                <button
+                  mat-icon-button
+                  style="box-shadow: rgb(0 0 0 / 20%) 0px 2px 4px"
+                >
+                  <mat-icon>home</mat-icon>
+                </button>
+                <span style="position: absolute; top: 10px; left: 58px"
+                  >Matricular en aula</span
+                >
+              </div>
+            </div>
+            <div style="padding-left: 8px; padding-right: 24px">
+              <p style="font-size: large; margin-top: 24px">
+                Detalles del estudiante
+              </p>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: 8px;
+                "
+              >
+                <div>
+                  <span>Los pastorticos</span><br /><span>Año Lectivo</span>
+                </div>
+                <div>
+                  <button mat-icon-button>
+                    <mat-icon>compare_arrows</mat-icon>
+                  </button>
+                  <button mat-icon-button>
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+              </div>
+              <button
+                mat-button
+                style="
+                  border: 2px solid rgb(240, 240, 0);
+                  border-radius: 20px;
+                  color: rgb(240, 240, 0);
+                "
+              >
+                Historico de aulas
+              </button>
+            </div>
+            <div style="padding-left: 8px; padding-right: 24px">
+              <p style="font-size: large; margin-top: 24px">Hermanos(as)</p>
+              <div style="display: flex; margin-bottom: 8px">
+                <div>
+                  <img
+                    src="https://cdn4.iconfinder.com/data/icons/avatar-vol-1-3/512/7-512.png"
+                    height="26px"
+                    style="
+                      background-color: yellow;
+                      border-radius: 50%;
+                      padding: 2px;
+                    "
+                  />
+                  <img
+                    src="https://cdn4.iconfinder.com/data/icons/avatar-vol-1-3/512/7-512.png"
+                    height="26px"
+                    style="
+                      background-color: green;
+                      border-radius: 50%;
+                      padding: 2px;
+                    "
+                  />
+                </div>
+                <div style="margin-top: -8px; margin-left: 12px">
+                  <button
+                    mat-icon-button
+                    style="box-shadow: rgb(0 0 0 / 20%) 0px 2px 4px"
+                  >
+                    <mat-icon>person_add</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div style="padding-left: 8px; padding-right: 24px">
+              <p style="font-size: large; margin-top: 24px">Familiares</p>
+              <div style="display: flex; margin-bottom: 8px">
+                <div>
+                  <img
+                    src="https://cdn4.iconfinder.com/data/icons/avatar-vol-1-3/512/7-512.png"
+                    height="26px"
+                    style="
+                      background-color: aqua;
+                      border-radius: 50%;
+                      padding: 2px;
+                    "
+                  />
+                  <img
+                    src="https://cdn4.iconfinder.com/data/icons/avatar-vol-1-3/512/7-512.png"
+                    height="26px"
+                    style="
+                      background-color: lightpink;
+                      border-radius: 50%;
+                      padding: 2px;
+                    "
+                  />
+                  <img
+                    src="https://cdn4.iconfinder.com/data/icons/avatar-vol-1-3/512/7-512.png"
+                    height="26px"
+                    style="
+                      background-color: chocolate;
+                      border-radius: 50%;
+                      padding: 2px;
+                    "
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="width: 100%; border-left: 1px solid rgb(220, 220, 220)">
+            <mat-tab-group>
+              <mat-tab label="Información">
+                <mat-accordion>
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title> Personal </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p>This is the primary content of the panel.</p>
+                  </mat-expansion-panel>
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title> Contacto </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p>This is the primary content of the panel.</p>
+                  </mat-expansion-panel>
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title> Datos de privacidad </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p>This is the primary content of the panel.</p>
+                  </mat-expansion-panel>
+                  <mat-expansion-panel expanded>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title> Adicional </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div style="padding: 10px">
+                      <div style="display: flex">
+                        <mat-form-field appearance="fill" style="width: 280px">
+                          <mat-label>Selec. colegio de procedencia</mat-label>
+                          <mat-select>
+                            <mat-option
+                              *ngFor="let college of colleges"
+                              [value]="college.value"
+                            >
+                              {{ college.viewValue }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <button
+                          mat-icon-button
+                          style="
+                            box-shadow: rgb(0 0 0 / 20%) 0px 2px 4px;
+                            margin-left: 20px;
+                          "
+                        >
+                          <mat-icon>edit</mat-icon>
+                        </button>
+                      </div>
+                      <mat-form-field appearance="fill" style="width: 200px">
+                        <mat-label>Selec. religion</mat-label>
+                        <mat-select>
+                          <mat-option
+                            *ngFor="let religion of religions"
+                            [value]="religion.value"
+                          >
+                            {{ religion.viewValue }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <br />
+                      <br />
+                      <p>Quienes pueden recoger al estudiante?</p>
+                      <div style="display: flex; margin-bottom: 8px">
+                        <div>
+                          <img
+                            src="https://cdn4.iconfinder.com/data/icons/avatar-vol-1-3/512/7-512.png"
+                            height="26px"
+                            style="
+                              background-color: aqua;
+                              border-radius: 50%;
+                              padding: 2px;
+                            "
+                          />
+                          <img
+                            src="https://cdn4.iconfinder.com/data/icons/avatar-vol-1-3/512/7-512.png"
+                            height="26px"
+                            style="
+                              background-color: lightpink;
+                              border-radius: 50%;
+                              padding: 2px;
+                            "
+                          />
+                        </div>
+                        <div
+                          style="
+                            position: relative;
+                            margin-left: 24px;
+                            margin-top: -4px;
+                          "
+                        >
+                          <button
+                            mat-icon-button
+                            style="box-shadow: rgb(0 0 0 / 20%) 0px 2px 4px"
+                          >
+                            <mat-icon>person_add</mat-icon>
+                          </button>
+                          <span
+                            style="
+                              position: absolute;
+                              top: 10px;
+                              left: 50px;
+                              width: 200px;
+                            "
+                            >Agregar responsables (3 max)</span
+                          >
+                        </div>
+                      </div>
+                      <br />
+                      <br />
+                      <p>Como se regresa a casa el estudiante?</p>
+
+                      <mat-form-field appearance="fill" style="width: 360px">
+                        <mat-label>Selec. medio de movilidad</mat-label>
+                        <mat-select>
+                          <mat-option
+                            *ngFor="let mobility of mobilities"
+                            [value]="mobility.value"
+                          >
+                            {{ mobility.viewValue }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </mat-tab>
+              <mat-tab label="Ficha médica"> Ficha médica </mat-tab>
+              <mat-tab label="Ficha psicológica"> Ficha psicológica </mat-tab>
+              <mat-tab label="Compromisos"> Compromisos </mat-tab>
+            </mat-tab-group>
+          </div>
+        </mat-card>
+
+        <button
+          mat-fab
+          style="margin-left: 2%; margin-top: -30px; background-color: #0ca9e2"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
       </div>
-      <div>
-        <mat-toolbar> </mat-toolbar>
-      </div>
-    </mat-drawer-content>
-  </mat-drawer-container>
+    </div>
+  </div>
 </div>
-
-<mat-card class="carta">
-  <mat-card-title> usuario </mat-card-title>
-  <mat-card-content>Detalle del Estudiantes</mat-card-content>
-  <mat-card-content>Nro. documento 24234234</mat-card-content>
-  <mat-card-content>Sede PREMIUM COLLEGE SURCO</mat-card-content>
-  <mat-card-content>Grado 1°Primaria</mat-card-content>
-  <mat-card-content>Estado de pago</mat-card-content>
-  <mat-card-title> Matricular </mat-card-title>
-  <mat-card-content>Matricular en aulas</mat-card-content>
-  <mat-card-content>LOS LEÑADORES</mat-card-content>
-  <mat-card-content>Año Lectivo</mat-card-content>
-  <mat-card-title> Hermanos(as) </mat-card-title>
-  <mat-card-content>iconos</mat-card-content>
-  <mat-card-title> Familiares </mat-card-title>
-  <mat-card-content>iconos</mat-card-content>
-</mat-card>

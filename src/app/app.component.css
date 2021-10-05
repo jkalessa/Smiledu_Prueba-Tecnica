@@ -1,15 +1,6 @@
-.left-bar div {
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  padding-left: 20px;
+.menu-item {
+  transition: background-color 300ms ease 0s;
 }
-.left-bar div mat-icon {
-  margin-left: 2px;
-}
-.left-bar-2 div {
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  padding-left: 0px;
+.menu-item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
