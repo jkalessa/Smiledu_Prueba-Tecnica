@@ -215,14 +215,16 @@
               </div>
             </div>
             <div style="padding-left: 8px; padding-right: 24px">
-              <p style="font-size: large; margin-top: 24px">
+              <p
+                style="font-size: large; margin-top: 24px; margin-bottom: 24px"
+              >
                 Detalles del estudiante
               </p>
               <div
                 style="
                   display: flex;
                   justify-content: space-between;
-                  margin-bottom: 8px;
+                  margin-bottom: 12px;
                 "
               >
                 <span>Nro. documento</span><span>72069123</span>
@@ -231,7 +233,7 @@
                 style="
                   display: flex;
                   justify-content: space-between;
-                  margin-bottom: 8px;
+                  margin-bottom: 12px;
                 "
               >
                 <span>Sede</span><span>PREMIUM COLLEGUE-SURCO</span>
@@ -240,7 +242,7 @@
                 style="
                   display: flex;
                   justify-content: space-between;
-                  margin-bottom: 8px;
+                  margin-bottom: 12px;
                 "
               >
                 <span>Grado</span><span>1° Primaria</span>
@@ -249,7 +251,7 @@
                 style="
                   display: flex;
                   justify-content: space-between;
-                  margin-bottom: 8px;
+                  margin-bottom: 12px;
                 "
               >
                 <span>Estado de pago</span
@@ -314,6 +316,7 @@
                   border-radius: 20px;
                   color: rgb(240, 240, 0);
                 "
+                (click)="openDialog()"
               >
                 Historico de aulas
               </button>

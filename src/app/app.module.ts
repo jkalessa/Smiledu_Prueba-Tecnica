@@ -19,9 +19,11 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
+import { ClassroomsComponent } from './components/classrooms/classrooms.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ClassroomsComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -41,6 +43,7 @@ import { MatTableModule } from '@angular/material/table';
     MatSelectModule,
     MatDialogModule,
     MatTableModule,
+    MatPaginatorModule,
   ],
 
   providers: [],

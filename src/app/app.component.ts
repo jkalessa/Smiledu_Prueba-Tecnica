@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { ClassroomsComponent } from './components/classrooms/classrooms.component';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +11,8 @@ import { map, startWith } from 'rxjs/operators';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  constructor(public dialog: MatDialog) {}
+
   expanded = true;
 
   menuItems: MenuItem[] = [
@@ -122,6 +126,10 @@ export class AppComponent {
     return this.options.filter((option) =>
       option.toLowerCase().includes(filterValue)
     );
+  }
+
+  openDialog() {
+    this.dialog.open(ClassroomsComponent, { width: '900px' });
   }
 }
 
